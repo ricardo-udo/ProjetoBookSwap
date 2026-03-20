@@ -133,7 +133,7 @@ C --> F[Visualizar avaliações]
 
 ## 📌 Roadmap
 
-* [x ] Cadastro e autenticação
+* [ ] Cadastro e autenticação
 * [ ] Sistema de busca e filtros
 * [ ] Cadastro de fornecedores
 * [ ] Sistema de avaliações
