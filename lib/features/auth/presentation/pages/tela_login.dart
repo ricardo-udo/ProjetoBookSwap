@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -35,15 +36,17 @@ class _TelaLoginState extends State<TelaLogin> {
   }
 
   void _handleLogin() {
-    print("Email: ${_emailController.text}");
-    print("Senha: ${_senhaController.text}");
+    // Simular login bem-sucedido
+    context.go('/livros');
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("TelaLogin"),
-      backgroundColor: Colors.blueAccent,
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text("TelaLogin"),
+        backgroundColor: Colors.blueAccent,
       ),
 
       body: SafeArea(

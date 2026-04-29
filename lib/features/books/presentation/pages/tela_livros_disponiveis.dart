@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/livro_card.dart';
 
 class TelaLivrosDisponiveis extends StatelessWidget {
   const TelaLivrosDisponiveis({super.key});
@@ -7,8 +8,6 @@ class TelaLivrosDisponiveis extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
-    final size = MediaQuery.of(context).size;
-    final buttonWidth = size.width > 420 ? 220.0 : size.width * 0.8;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF5F6FA),
@@ -101,23 +100,15 @@ class TelaLivrosDisponiveis extends StatelessWidget {
                 const SizedBox(height: 28),
                 _buildAvailableText(textTheme),
                 const SizedBox(height: 16),
-                _buildBookCard(context),
-                const SizedBox(height: 32),
-                Center(
-                  child: SizedBox(
-                    width: buttonWidth,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF2C3A66),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        padding: const EdgeInsets.symmetric(vertical: 16),
-                      ),
-                      child: const Text('Salvar'),
-                    ),
-                  ),
+                LivroCard(
+                  userName: 'João Silva',
+                  bookName: 'O Senhor dos Anéis',
+                  bookGenre: 'Fantasia',
+                  bookAuthor: 'J.R.R. Tolkien',
+                  bookImageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=300&q=80',
+                  status: LivroStatus.available,
+                  onProposeTrade: () {},
+                  onViewDetails: () {},
                 ),
               ],
             ),
@@ -126,7 +117,7 @@ class TelaLivrosDisponiveis extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        backgroundColor: const Color(0xFF2C3A66),
+        backgroundColor: const Color(0xFFFFFFFF),
         icon: const Icon(Icons.add),
         label: const Text('Adicionar Livro'),
       ),
@@ -280,32 +271,6 @@ class TelaLivrosDisponiveis extends StatelessWidget {
       style: textTheme.bodyMedium?.copyWith(
         color: const Color(0xFF7F8597),
         fontWeight: FontWeight.w600,
-      ),
-    );
-  }
-
-  Widget _buildBookCard(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(28),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.08),
-            blurRadius: 20,
-            offset: const Offset(0, 10),
-          ),
-        ],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(28),
-        child: AspectRatio(
-          aspectRatio: 4 / 3,
-          child: Image.network(
-            'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=900&q=80',
-            fit: BoxFit.cover,
-          ),
-        ),
       ),
     );
   }

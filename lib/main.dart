@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'telas/tela_livros_disponiveis.dart';
+import 'routes/app_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,14 +10,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'BookSwap',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
         scaffoldBackgroundColor: const Color(0xFFF5F6FA),
       ),
-      home: const TelaLivrosDisponiveis(),
+      routerConfig: appRouter,
     );
   }
 }

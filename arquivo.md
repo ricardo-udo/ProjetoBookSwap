@@ -1,39 +1,43 @@
-Prompt para Copilot: Tela Flutter
-Contexto:
-Estou desenvolvendo um aplicativo em Flutter e preciso criar a interface de uma tela de [NOME DA TELA, ex: Perfil do Usuário / Dashboard Financeiro].
+✅ 1. Adicionar status do livro
 
-Requisitos de UI:
+Cada livro deve ter um status:
 
-Layout: Utilize um Scaffold com uma AppBar que contenha o título "[TÍTULO]".
+available (Disponível)
+negotiating (Em negociação)
+sold (Vendido)
+Requisitos:
+Exibir um badge/label visual no card do livro
+Cores sugeridas:
+Verde → Disponível
+Amarelo → Em negociação
+Cinza/Vermelho → Vendido
+✅ 2. Destacar botão principal
 
-Corpo: Use um SingleChildScrollView com uma Column.
+Melhorar hierarquia dos botões:
 
-Componentes específicos:
+"Propor troca" → botão principal (cor forte, ex: verde ou azul)
+"Ver detalhes" → botão secundário (outline ou cor mais neutra)
+✅ 3. Melhorar layout do card
+Reduzir altura do card
+Melhorar espaçamento interno
+Organizar melhor:
+imagem
+informações
+botões
+Tornar o card mais compacto e moderno
+✅ 4. Melhorar imagem do livro
+Aumentar o tamanho da imagem
+Manter proporção (usar BoxFit.cover)
+Adicionar borda arredondada
+🎯 Objetivo
 
-Um CircleAvatar para a foto de perfil no topo.
+Quero um código Flutter limpo e organizado que:
 
-Três ListTile para opções de configuração (Ícone, Texto e Seta para a direita).
+melhore a aparência visual
+mantenha boa legibilidade
+siga boas práticas de UI
 
-Um ElevatedButton centralizado na parte inferior com o texto "Salvar".
+Se possível:
 
-Estilização: Use o Theme.of(context).textTheme para garantir consistência visual e aplique um Padding de 16.0 em toda a tela.
-
-Requisitos Técnicos:
-
-Crie a tela como um StatelessWidget (ou StatefulWidget se houver interação).
-
-Separe os componentes menores em métodos ou widgets privados dentro do mesmo arquivo para manter o código limpo.
-
-Utilize boas práticas de tipagem forte e const onde for possível.
-
-Certifique-se de que o layout seja responsivo usando MediaQuery ou widgets flexíveis.
-
-Saída esperada:
-Apenas o código Dart completo para o arquivo [nome_do_arquivo].dart.
-
-Dicas para extrair o melhor do Copilot:
-Seja Visual: Se a tela for complexa, descreva de cima para baixo: "Primeiro um Header com gradiente, depois um GridView 2x2, por fim um BottomNavigationBar".
-
-Cite Bibliotecas: Se você usa pacotes específicos (como google_fonts, provider ou flutter_svg), mencione no prompt para que ele já importe e utilize a sintaxe correta.
-
-Refinamento: Após ele gerar o código, você pode selecionar uma parte e pedir: "Adicione um arredondamento de 15px nas bordas deste card" ou "Mude a cor do botão para o padrão Amber do Material Design".
+criar um widget reutilizável LivroCard
+usar boas práticas de composição de widgets
