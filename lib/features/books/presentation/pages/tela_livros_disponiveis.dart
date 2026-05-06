@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../widgets/livro_card.dart';
 
 class TelaLivrosDisponiveis extends StatelessWidget {
@@ -107,8 +108,8 @@ class TelaLivrosDisponiveis extends StatelessWidget {
                   bookAuthor: 'J.R.R. Tolkien',
                   bookImageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=300&q=80',
                   status: LivroStatus.available,
-                  onProposeTrade: () {},
-                  onViewDetails: () {},
+                  onProposeTrade: (context) => context.go('/chat', extra: 'João Silva'),
+                  onViewDetails: (book) => context.go('/detalhes-livro', extra: book),
                 ),
               ],
             ),

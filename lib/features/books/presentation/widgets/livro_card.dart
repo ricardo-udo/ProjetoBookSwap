@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../pages/tela_detalhes_livro.dart';
 
 enum LivroStatus {
   available,
@@ -13,8 +15,8 @@ class LivroCard extends StatelessWidget {
   final String bookAuthor;
   final String bookImageUrl;
   final LivroStatus status;
-  final VoidCallback onProposeTrade;
-  final VoidCallback onViewDetails;
+  final void Function(BuildContext) onProposeTrade;
+  final void Function(Book) onViewDetails;
 
   const LivroCard({
     super.key,
@@ -138,7 +140,7 @@ class LivroCard extends StatelessWidget {
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: onProposeTrade,
+                            onPressed: () => onProposeTrade(context),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xFF2ECC71),
                               foregroundColor: Colors.white,
@@ -161,7 +163,7 @@ class LivroCard extends StatelessWidget {
                         const SizedBox(width: 10),
                         Expanded(
                           child: OutlinedButton(
-                            onPressed: onViewDetails,
+                            onPressed: () => _onViewDetailsPressed(),
                             style: OutlinedButton.styleFrom(
                               side: const BorderSide(
                                 color: Color(0xFF2ECC71),
@@ -194,6 +196,23 @@ class LivroCard extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _onViewDetailsPressed() {
+    final book = Book(
+      title: bookName,
+      author: bookAuthor,
+      genre: bookGenre,
+      year: 1954, // Mock data
+      pages: 1216, // Mock data
+      synopsis: 'Uma jornada épica através da Terra Média...', // Mock data
+      imageUrl: bookImageUrl,
+      ownerName: userName,
+      ownerAvatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80', // Mock data
+      status: status.name,
+      publisher: 'Editora Mock', // Mock data
+    );
+    onViewDetails(book);
   }
 
   Widget _buildInfoRow(String label, String value, TextTheme textTheme) {
